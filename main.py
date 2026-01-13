@@ -12,11 +12,16 @@ vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 current_pants = []
 current_sweater = []
 
-while True:
+
+running = True
+
+while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            pg.quit()
-            sys.exit()
+            running = False
+        if event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE:
+            running = False
+
 
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
@@ -33,5 +38,7 @@ while True:
             if event.key == pg.K_e:
                 current_pants = 
 
-# Initialiserer/starter pygame
-pg.init()
+
+
+pg.quit()
+sys.exit()
