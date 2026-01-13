@@ -11,6 +11,7 @@ vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
 current_pants = []
 current_sweater = []
+silje = pg.image.load("drestoimpress/bilder/jente.png")
 
 
 running = True
@@ -22,7 +23,16 @@ while running:
         if event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE:
             running = False
 
+    
+        # Fyll bakgrunn (valgfritt, men anbefalt)
+        vindu.fill((255, 255, 255))
 
+        # Tegn jenta (alltid)
+        vindu.blit(silje, (0, 0))
+
+        pg.display.flip()
+
+"""
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
                 current_sweater = 
@@ -37,6 +47,7 @@ while running:
                 current_pants = 
             if event.key == pg.K_e:
                 current_pants = 
+"""
 
 
 
