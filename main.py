@@ -11,7 +11,7 @@ vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
 current_pants = []
 current_sweater = []
-silje = pg.image.load("drestoimpress/bilder/jente.png")
+silje = pg.image.load("dresstoimpress/bilder/jente.png")
 
 
 running = True
@@ -28,7 +28,7 @@ while running:
         vindu.fill((255, 255, 255))
 
         # Tegn jenta (alltid)
-        vindu.blit(silje, (0, 0))
+        vindu.blit(silje, (130, 0))
 
         pg.display.flip()
 
