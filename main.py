@@ -9,21 +9,29 @@ VINDU_BREDDE = 500
 VINDU_HOYDE  = 500
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
-current_pants = {
+current_pants = []
+"""
+{
     "1": " ",
     "2": " ", 
     "3": " ", 
     "4": " ",
     "5": " "
 }
-current_sweater = {
+"""
+current_sweater = []
+"""
+{
     "1": "",
     "2": " ", 
     "3": " ", 
     "4": " ", 
     "5": " "}
+"""
 
 silje = pg.image.load("dresstoimpress/bilder/jente.png")
+
+
 
 
 running = True
@@ -42,9 +50,11 @@ while running:
         # Tegn jenta (alltid)
         vindu.blit(silje, (130, 0))
 
+        pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
+
         pg.display.flip()
 
-"""
+
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
                 current_sweater = current_sweater[0]
@@ -52,18 +62,24 @@ while running:
                 current_sweater = current_sweater[1]
             if event.key == pg.K_3:
                 current_sweater = current_sweater[2]
-             if event.key == pg.K_4:
+            if event.key == pg.K_4:
                 current_sweater = current_sweater[3]
             if event.key == pg.K_5:
                 current_sweater = current_sweater[4]
 
             if event.key == pg.K_q:
-                current_pants = 
+                current_pants = current_pants[0]
             if event.key == pg.K_w:
-                current_pants = 
+                current_pants = current_pants[1]
             if event.key == pg.K_e:
-                current_pants = 
-"""
+                current_pants = current_pants[2]
+            if event.key == pg.K_r:
+                current_pants = current_pants[3]
+            if event.key == pg.K_t:
+                current_pants = current_pants[4]
+    
+
+
 
 
 
