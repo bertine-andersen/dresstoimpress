@@ -9,8 +9,20 @@ VINDU_BREDDE = 500
 VINDU_HOYDE  = 500
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
-current_pants = []
-current_sweater = []
+current_pants = {
+    "1": " ",
+    "2": " ", 
+    "3": " ", 
+    "4": " ",
+    "5": " "
+}
+current_sweater = {
+    "1": "",
+    "2": " ", 
+    "3": " ", 
+    "4": " ", 
+    "5": " "}
+
 silje = pg.image.load("dresstoimpress/bilder/jente.png")
 
 
@@ -35,11 +47,15 @@ while running:
 """
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
-                current_sweater = 
+                current_sweater = current_sweater[0]
             if event.key == pg.K_2:
-                current_sweater = 
+                current_sweater = current_sweater[1]
             if event.key == pg.K_3:
-                current_sweater = 
+                current_sweater = current_sweater[2]
+             if event.key == pg.K_4:
+                current_sweater = current_sweater[3]
+            if event.key == pg.K_5:
+                current_sweater = current_sweater[4]
 
             if event.key == pg.K_q:
                 current_pants = 
