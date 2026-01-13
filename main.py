@@ -1,4 +1,5 @@
 import pygame as pg
+import sys
 
 # Initialiserer/starter pygame
 pg.init()
