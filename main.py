@@ -9,16 +9,8 @@ VINDU_BREDDE = 500
 VINDU_HOYDE  = 500
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
-current_pants = []
-"""
-{
-    "1": " ",
-    "2": " ", 
-    "3": " ", 
-    "4": " ",
-    "5": " "
-}
-"""
+
+
 gensere = [
     pg.image.load("dresstoimpress/bilder/overdeler/topp1.png"), 
     pg.image.load("dresstoimpress/bilder/overdeler/topp2.png"), 
@@ -27,15 +19,15 @@ gensere = [
     pg.image.load("dresstoimpress/bilder/overdeler/topp5.png")
     ]
 
+
 valgt_genser = 0
-"""
-{
-    "1": "",
-    "2": " ", 
-    "3": " ", 
-    "4": " ", 
-    "5": " "}
-"""
+
+bukser = [
+
+]
+
+valgt_bukse = 0
+
 
 silje = pg.image.load("dresstoimpress/bilder/jente.png")
 
@@ -84,15 +76,15 @@ while running:
                 valgt_genser = 4
 
             if event.key == pg.K_q:
-                current_pants = current_pants[0]
+                valgt_bukse = 0
             if event.key == pg.K_w:
-                current_pants = current_pants[1]
+                valgt_bukse = 1
             if event.key == pg.K_e:
-                current_pants = current_pants[2]
+                valgt_bukse = 2
             if event.key == pg.K_r:
-                current_pants = current_pants[3]
+                valgt_bukse = 3
             if event.key == pg.K_t:
-                current_pants = current_pants[4]
+                valgt_bukse = 4
     
 
 
