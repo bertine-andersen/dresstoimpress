@@ -19,7 +19,15 @@ current_pants = []
     "5": " "
 }
 """
-current_sweater = []
+gensere = [
+    pg.image.load("dresstoimpress/bilder/overdeler/topp1.png"), 
+    pg.image.load("dresstoimpress/bilder/overdeler/topp2.png"), 
+    pg.image.load("dresstoimpress/bilder/overdeler/topp3.png"), 
+    pg.image.load("dresstoimpress/bilder/overdeler/topp4.png"), 
+    pg.image.load("dresstoimpress/bilder/overdeler/topp5.png")
+    ]
+
+valgt_genser = 0
 """
 {
     "1": "",
@@ -34,7 +42,13 @@ silje = pg.image.load("dresstoimpress/bilder/jente.png")
 
 
 
+
 running = True
+
+
+knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
+
+
 
 while running:
     for event in pg.event.get():
@@ -49,23 +63,25 @@ while running:
 
         # Tegn jenta (alltid)
         vindu.blit(silje, (130, 0))
+        vindu.blit(gensere[valgt_genser], (150, 150))
 
-        pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
+        
 
+        
         pg.display.flip()
 
 
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
-                current_sweater = current_sweater[0]
+                valgt_genser = 0
             if event.key == pg.K_2:
-                current_sweater = current_sweater[1]
+                valgt_genser = 1
             if event.key == pg.K_3:
-                current_sweater = current_sweater[2]
+                valgt_genser = 2
             if event.key == pg.K_4:
-                current_sweater = current_sweater[3]
+                valgt_genser = 3
             if event.key == pg.K_5:
-                current_sweater = current_sweater[4]
+                valgt_genser = 4
 
             if event.key == pg.K_q:
                 current_pants = current_pants[0]
