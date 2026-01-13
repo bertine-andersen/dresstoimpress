@@ -1,4 +1,5 @@
 import pygame as pg
+import sys
 
 # Initialiserer/starter pygame
 pg.init()
@@ -8,6 +9,9 @@ VINDU_BREDDE = 500
 VINDU_HOYDE  = 500
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
+current_pants = []
+current_sweater = []
+
 while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -16,18 +20,18 @@ while True:
 
         if event.type == pg.KEYDOWN:
             if event.key == pg.K_1:
-                current_sweater = 0
+                current_sweater = 
             if event.key == pg.K_2:
-                current_sweater = 1
+                current_sweater = 
             if event.key == pg.K_3:
-                current_sweater = 2
+                current_sweater = 
 
             if event.key == pg.K_q:
-                current_pants = 0
+                current_pants = 
             if event.key == pg.K_w:
-                current_pants = 1
+                current_pants = 
             if event.key == pg.K_e:
-                current_pants = 2
+                current_pants = 
 
 # Initialiserer/starter pygame
 pg.init()
