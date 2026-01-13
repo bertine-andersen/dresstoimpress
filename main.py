@@ -9,6 +9,15 @@ VINDU_BREDDE = 500
 VINDU_HOYDE  = 500
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
+
+silje = pg.image.load("dresstoimpress/bilder/jente.png").convert_alpha()
+
+SILJE_BREDDE = 240
+SILJE_HOYDE = 480
+
+silje = pg.transform.scale(silje, (SILJE_BREDDE, SILJE_HOYDE))
+silje_rect = silje.get_rect(topleft=(130, 10))
+
 current_pants = []
 """
 {
@@ -20,34 +29,28 @@ current_pants = []
 }
 """
 gensere = [
-    pg.image.load("dresstoimpress/bilder/overdeler/topp1.png"), 
-    pg.image.load("dresstoimpress/bilder/overdeler/topp2.png"), 
-    pg.image.load("dresstoimpress/bilder/overdeler/topp3.png"), 
-    pg.image.load("dresstoimpress/bilder/overdeler/topp4.png"), 
-    pg.image.load("dresstoimpress/bilder/overdeler/topp5.png")
-    ]
+    pg.image.load("dresstoimpress/bilder/overdeler/topp1.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/overdeler/topp2.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/overdeler/topp3.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/overdeler/topp4.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/overdeler/topp5.png").convert_alpha()
+]
+
+GENSER_BREDDE = int(SILJE_BREDDE * 0.65)
+GENSER_HOYDE = int(SILJE_HOYDE * 0.3)
+
+gensere = [
+    pg.transform.scale(genser, (GENSER_BREDDE, GENSER_HOYDE))
+    for genser in gensere
+]
 
 valgt_genser = 0
-"""
-{
-    "1": "",
-    "2": " ", 
-    "3": " ", 
-    "4": " ", 
-    "5": " "}
-"""
-
-silje = pg.image.load("dresstoimpress/bilder/jente.png")
-
-
 
 
 
 running = True
 
-
 knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
-
 
 
 while running:
@@ -61,9 +64,16 @@ while running:
         # Fyll bakgrunn (valgfritt, men anbefalt)
         vindu.fill((255, 255, 255))
 
-        # Tegn jenta (alltid)
-        vindu.blit(silje, (130, 0))
-        vindu.blit(gensere[valgt_genser], (150, 150))
+        # Tegn jenta
+        vindu.blit(silje, silje_rect)
+
+        # Tegn valgt genser
+        genser_rect = gensere[valgt_genser].get_rect()
+        genser_rect.centerx = silje_rect.centerx
+        genser_rect.top = silje_rect.top + 90
+
+        vindu.blit(gensere[valgt_genser], genser_rect)
+
 
         
 
