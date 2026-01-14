@@ -29,7 +29,7 @@ gensere = [
     pg.image.load("bilder/overdeler/topp5.png").convert_alpha()
 ]
 
-GENSER_BREDDE = int(SILJE_BREDDE * 0.65)
+GENSER_BREDDE = int(SILJE_BREDDE * 0.6)
 GENSER_HOYDE = int(SILJE_HOYDE * 0.3)
 
 # skalerer genserene
@@ -119,12 +119,12 @@ while running:
 
         # Tegn valgt genser og bukse
         genser_rect = gensere[valgt_genser].get_rect()
-        genser_rect.centerx = silje_rect.centerx
-        genser_rect.top = silje_rect.top + 90
+        genser_rect.centerx = silje_rect.centerx + 8
+        genser_rect.top = silje_rect.top + 170
 
         bukse_rect = bukser[valgt_bukse].get_rect()
-        bukse_rect.centerx = silje_rect.centerx
-        bukse_rect.top = silje_rect.top + int(SILJE_HOYDE * 0.5)
+        bukse_rect.centerx = silje_rect.centerx + 8
+        bukse_rect.top = silje_rect.top + int(SILJE_HOYDE * 0.55)
 
         vindu.blit(bukser[valgt_bukse], bukse_rect)
         vindu.blit(gensere[valgt_genser], genser_rect)
