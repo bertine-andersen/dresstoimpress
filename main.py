@@ -18,16 +18,7 @@ SILJE_HOYDE = 480
 silje = pg.transform.scale(silje, (SILJE_BREDDE, SILJE_HOYDE))
 silje_rect = silje.get_rect(topleft=(130, 10))
 
-current_pants = []
-"""
-{
-    "1": " ",
-    "2": " ", 
-    "3": " ", 
-    "4": " ",
-    "5": " "
-}
-"""
+
 
 gensere = [
     pg.image.load("dresstoimpress/bilder/overdeler/topp1.png").convert_alpha(),
@@ -49,6 +40,12 @@ gensere = [
 valgt_genser = 0
 
 bukser = [
+    pg.image.load("dresstoimpress/bilder/underdeler/bunn1.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/underdeler/bunn2.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/underdeler/bunn3.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/underdeler/bunn4.png").convert_alpha(),
+    pg.image.load("dresstoimpress/bilder/underdeler/bunn5.png").convert_alpha(),
+
 
 ]
 
@@ -58,12 +55,11 @@ valgt_bukse = 0
 silje = pg.image.load("dresstoimpress/bilder/jente.png")
 
 
-
-
-
 running = True
 
-knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
+
+#knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
+knapp = pg.Rect(200,450,100,40)
 
 
 while running:
@@ -72,6 +68,9 @@ while running:
             running = False
         if event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE:
             running = False
+        if event.type == pg.MOUSEBUTTONDOWN and knapp.collidepoint(event.pos):
+            print("Du klikket")
+
 
     
         # Fyll bakgrunn (valgfritt, men anbefalt)
@@ -87,7 +86,7 @@ while running:
 
         vindu.blit(gensere[valgt_genser], genser_rect)
 
-
+        pg.draw.rect(vindu,(255,192,203),knapp)
         
 
         
