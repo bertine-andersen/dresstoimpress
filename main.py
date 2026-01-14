@@ -11,7 +11,7 @@ vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
 
 # laster opp jenta
-silje = pg.image.load("dresstoimpress/bilder/jente.png").convert_alpha()
+silje = pg.image.load("bilder/jente.png").convert_alpha()
 
 SILJE_BREDDE = 240
 SILJE_HOYDE = 480
@@ -22,11 +22,11 @@ silje_rect = silje.get_rect(topleft=(130, 10))
 
 # laster opp bilder
 gensere = [
-    pg.image.load("dresstoimpress/bilder/overdeler/topp1.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/overdeler/topp2.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/overdeler/topp3.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/overdeler/topp4.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/overdeler/topp5.png").convert_alpha()
+    pg.image.load("bilder/overdeler/topp1.png").convert_alpha(),
+    pg.image.load("bilder/overdeler/topp2.png").convert_alpha(),
+    pg.image.load("bilder/overdeler/topp3.png").convert_alpha(),
+    pg.image.load("bilder/overdeler/topp4.png").convert_alpha(),
+    pg.image.load("bilder/overdeler/topp5.png").convert_alpha()
 ]
 
 GENSER_BREDDE = int(SILJE_BREDDE * 0.65)
@@ -42,11 +42,11 @@ valgt_genser = 0
 
 
 bukser = [
-    pg.image.load("dresstoimpress/bilder/underdeler/bunn1.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/underdeler/bunn2.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/underdeler/bunn3.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/underdeler/bunn4.png").convert_alpha(),
-    pg.image.load("dresstoimpress/bilder/underdeler/bunn5.png").convert_alpha(),
+    pg.image.load("bilder/underdeler/bunn1.png").convert_alpha(),
+    pg.image.load("bilder/underdeler/bunn2.png").convert_alpha(),
+    pg.image.load("bilder/underdeler/bunn3.png").convert_alpha(),
+    pg.image.load("bilder/underdeler/bunn4.png").convert_alpha(),
+    pg.image.load("bilder/underdeler/bunn5.png").convert_alpha(),
 
 
 ]
@@ -56,14 +56,13 @@ BUKSE_HOYDE = int(SILJE_HOYDE * 0.3)
 
 # skalerer bukser
 bukser = [
-    pg.transform.scale(bukser, (BUKSE_BREDDE, BUKSE_HOYDE))
+    pg.transform.scale(bukse, (BUKSE_BREDDE, BUKSE_HOYDE))
     for bukse in bukser
 ]
 
 valgt_bukse = 0
 
 
-silje = pg.image.load("dresstoimpress/bilder/jente.png")
 font = pg.font.SysFont("Arial", 10)
 
 
@@ -98,7 +97,7 @@ while running:
         genser_rect.centerx = silje_rect.centerx
         genser_rect.top = silje_rect.top + 90
 
-        bukse_rect = bukse[valgt_bukse].get_rect()
+        bukse_rect = bukser[valgt_bukse].get_rect()
         bukse_rect.centerx = silje_rect.centerx
         bukse_rect.top = silje_rect.top + int(SILJE_HOYDE * 0.5)
 
