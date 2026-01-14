@@ -63,6 +63,11 @@ bukser = [
 valgt_bukse = 0
 
 
+silje = pg.image.load("dresstoimpress/bilder/jente.png")
+font = pg.font.SysFont("Arial", 10)
+
+
+
 running = True
 
 
@@ -78,6 +83,7 @@ while running:
             running = False
         if event.type == pg.MOUSEBUTTONDOWN and knapp.collidepoint(event.pos):
             print("Du klikket")
+
 
 
     
@@ -99,7 +105,12 @@ while running:
         vindu.blit(bukser[valgt_bukse], bukse_rect)
         vindu.blit(gensere[valgt_genser], genser_rect)
 
+    
+        # Lager en tekst i form av et bilde og legger til bildet i vinduet
         pg.draw.rect(vindu,(255,192,203),knapp)
+        bilde = font.render("Ferdig", True, (255, 0, 0)).convert_alpha()
+        vindu.blit(vindu, (knapp.x, knapp.y))
+
         
 
         
