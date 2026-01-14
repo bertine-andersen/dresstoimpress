@@ -1,5 +1,6 @@
 import pygame as pg
 import sys
+from constants import *
 
 # Initialiserer/starter pygame
 pg.init()
@@ -110,7 +111,7 @@ while running:
                 valgt_bukse = 4
 
 
-                
+
         # Fyll bakgrunn (valgfritt, men anbefalt)
         vindu.fill((255, 255, 255))
 
