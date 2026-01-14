@@ -10,6 +10,7 @@ VINDU_HOYDE  = 500
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 
 
+# laster opp jenta
 silje = pg.image.load("dresstoimpress/bilder/jente.png").convert_alpha()
 
 SILJE_BREDDE = 240
@@ -19,7 +20,7 @@ silje = pg.transform.scale(silje, (SILJE_BREDDE, SILJE_HOYDE))
 silje_rect = silje.get_rect(topleft=(130, 10))
 
 
-
+# laster opp bilder
 gensere = [
     pg.image.load("dresstoimpress/bilder/overdeler/topp1.png").convert_alpha(),
     pg.image.load("dresstoimpress/bilder/overdeler/topp2.png").convert_alpha(),
@@ -31,13 +32,14 @@ gensere = [
 GENSER_BREDDE = int(SILJE_BREDDE * 0.65)
 GENSER_HOYDE = int(SILJE_HOYDE * 0.3)
 
+# skalerer genserene
 gensere = [
     pg.transform.scale(genser, (GENSER_BREDDE, GENSER_HOYDE))
     for genser in gensere
 ]
 
-
 valgt_genser = 0
+
 
 bukser = [
     pg.image.load("dresstoimpress/bilder/underdeler/bunn1.png").convert_alpha(),
@@ -47,6 +49,15 @@ bukser = [
     pg.image.load("dresstoimpress/bilder/underdeler/bunn5.png").convert_alpha(),
 
 
+]
+
+BUKSE_BREDDE = int(SILJE_BREDDE * 0.65)
+BUKSE_HOYDE = int(SILJE_HOYDE * 0.3)
+
+# skalerer bukser
+bukser = [
+    pg.transform.scale(bukser, (BUKSE_BREDDE, BUKSE_HOYDE))
+    for bukse in bukser
 ]
 
 valgt_bukse = 0
@@ -83,11 +94,16 @@ while running:
         # Tegn jenta
         vindu.blit(silje, silje_rect)
 
-        # Tegn valgt genser
+        # Tegn valgt genser og bukse
         genser_rect = gensere[valgt_genser].get_rect()
         genser_rect.centerx = silje_rect.centerx
         genser_rect.top = silje_rect.top + 90
 
+        bukse_rect = bukse[valgt_bukse].get_rect()
+        bukse_rect.centerx = silje_rect.centerx
+        bukse_rect.top = silje_rect.top + int(SILJE_HOYDE * 0.5)
+
+        vindu.blit(bukser[valgt_bukse], bukse_rect)
         vindu.blit(gensere[valgt_genser], genser_rect)
 
     
