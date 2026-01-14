@@ -1,9 +1,10 @@
 import pygame as pg
 import sys
-from constants import *
-
 # Initialiserer/starter pygame
 pg.init()
+pg.font.init()
+from constants import *
+
 
 
 while running:
@@ -69,7 +70,7 @@ while running:
 
         
         if ferdig_trykket:
-        # Vis "Dagens antrekk!" øverst
+            # Vis "Dagens antrekk!" øverst
             finish = font.render("Dagens antrekk!", True, (255, 0, 0))
             vindu.blit(finish, (150, 20))
     
