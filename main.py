@@ -6,7 +6,11 @@ pg.font.init()
 from constants import *
 
 
-while running:
+def handleEvents():
+    global ferdig_trykket
+    global running
+    global valgt_bukse, valgt_genser, genser_x, bukse_x
+
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
@@ -53,55 +57,62 @@ while running:
                     bukse_x = -BUKSE_BREDDE
 
 
+def animer():
+    global genser_x, bukse_x
+    # Animasjon – genser sklir mot målet
+    if genser_x < genser_start:
+        genser_x += fart
+        if genser_x > genser_start:
+            genser_x = genser_start
 
-        # Fyll bakgrunn (valgfritt, men anbefalt)
-        vindu.fill((255, 255, 255))
-
-        # Tegn jenta
-        vindu.blit(silje, silje_rect)
-
-        # Tegn valgt genser og bukse
-        genser_rect = gensere[valgt_genser].get_rect()
-        #genser_rect.centerx = silje_rect.centerx + 8
-        genser_rect.x = genser_x
-        genser_rect.top = silje_rect.top + 170
-
-        bukse_rect = bukser[valgt_bukse].get_rect()
-        #bukse_rect.centerx = silje_rect.centerx + 8
-        bukse_rect.x = bukse_x
-        bukse_rect.top = silje_rect.top + int(SILJE_HOYDE * 0.55)
+    # Animasjon – bukse sklir mot målet
+    if bukse_x <bukse_start:
+        bukse_x += fart
+        if bukse_x > bukse_start:
+            bukse_x = bukse_start
 
 
-        # Animasjon – genser sklir mot målet
-        if genser_x < genser_start:
-            genser_x += fart
-            if genser_x > genser_start:
-                genser_x = genser_start
 
-        # Animasjon – bukse sklir mot målet
-        if bukse_x <bukse_start:
-            bukse_x += fart
-            if bukse_x > bukse_start:
-                bukse_x = bukse_start
+while running:
+    handleEvents()
 
-        vindu.blit(bukser[valgt_bukse], bukse_rect)
-        vindu.blit(gensere[valgt_genser], genser_rect)
+    # Fyll bakgrunn (valgfritt, men anbefalt)
+    vindu.fill((255, 255, 255))
+
+    # Tegn jenta
+    vindu.blit(silje, silje_rect)
+
+    # Tegn valgt genser og bukse
+    genser_rect = gensere[valgt_genser].get_rect()
+    #genser_rect.centerx = silje_rect.centerx + 8
+    genser_rect.x = genser_x
+    genser_rect.top = silje_rect.top + 170
+
+    bukse_rect = bukser[valgt_bukse].get_rect()
+    #bukse_rect.centerx = silje_rect.centerx + 8
+    bukse_rect.x = bukse_x
+    bukse_rect.top = silje_rect.top + int(SILJE_HOYDE * 0.55)
+
+    animer()
+
+    vindu.blit(bukser[valgt_bukse], bukse_rect)
+    vindu.blit(gensere[valgt_genser], genser_rect)
+
 
     
+    if ferdig_trykket:
+        # Vis "Dagens antrekk!" øverst
+        finish = font.render("Dagens antrekk!", True, (255, 0, 0))
+        vindu.blit(finish, (180, 20))
+
+    else:
+        # Vis "Ferdig"-knappen
+        pg.draw.rect(vindu, (255, 192, 203), knapp)
+        bilde = font.render("Ferdig", True, (255, 0, 0))
+        vindu.blit(bilde, (knapp.x + 15, knapp.y + 5))
         
-        if ferdig_trykket:
-            # Vis "Dagens antrekk!" øverst
-            finish = font.render("Dagens antrekk!", True, (255, 0, 0))
-            vindu.blit(finish, (180, 20))
-    
-        else:
-            # Vis "Ferdig"-knappen
-            pg.draw.rect(vindu, (255, 192, 203), knapp)
-            bilde = font.render("Ferdig", True, (255, 0, 0))
-            vindu.blit(bilde, (knapp.x + 15, knapp.y + 5))
-            
-        pg.display.flip()
-        clock = pg.time.Clock()
+    pg.display.flip()
+    clock = pg.time.Clock()
 
 
 pg.quit()
