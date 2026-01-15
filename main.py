@@ -101,6 +101,7 @@ while running:
             vindu.blit(bilde, (knapp.x + 15, knapp.y + 5))
             
         pg.display.flip()
+        clock = pg.time.Clock()
 
 
 pg.quit()

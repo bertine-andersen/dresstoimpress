@@ -66,19 +66,3 @@ ferdig_trykket = False  # NY VARIABEL!
 
 #knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
 knapp = pg.Rect(200,450,100,40)
-
-
-#For å få klærne til å skli inn og ut av frame 
-
-# Startposisjoner (midt på Silje). 
-# Restdeler på to sånn at midt på genseren er midt på Silje
-genser_start = silje_rect.centerx + 8 - GENSER_BREDDE // 2
-bukse_start  = silje_rect.centerx + 8 - BUKSE_BREDDE // 2
-
-
-
-
-genser_x = -GENSER_BREDDE -100 # starter utenfor skjermen
-bukse_x  = -BUKSE_BREDDE -100
-
-fart = 15  # hvor raskt klærne sklir
