@@ -66,3 +66,6 @@ ferdig_trykket = False  # NY VARIABEL!
 
 #knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
 knapp = pg.Rect(200,450,100,40)
+
+
+FPS = 60
