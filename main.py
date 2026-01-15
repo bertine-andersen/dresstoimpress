@@ -6,7 +6,6 @@ pg.font.init()
 from constants import *
 
 
-
 while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -18,29 +17,30 @@ while running:
                 print("Du klikket")
                 ferdig_trykket = True  # Sett til True!
 
-            
-        if event.type == pg.KEYDOWN:
-            if event.key == pg.K_1:
-                valgt_genser = 0
-            if event.key == pg.K_2:
-                valgt_genser = 1
-            if event.key == pg.K_3:
-                valgt_genser = 2
-            if event.key == pg.K_4:
-                valgt_genser = 3
-            if event.key == pg.K_5:
-                valgt_genser = 4
 
-            if event.key == pg.K_q:
-                valgt_bukse = 0
-            if event.key == pg.K_w:
-                valgt_bukse = 1
-            if event.key == pg.K_e:
-                valgt_bukse = 2
-            if event.key == pg.K_r:
-                valgt_bukse = 3
-            if event.key == pg.K_t:
-                valgt_bukse = 4
+        if ferdig_trykket == False:    
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_1:
+                    valgt_genser = 0
+                if event.key == pg.K_2:
+                    valgt_genser = 1
+                if event.key == pg.K_3:
+                    valgt_genser = 2
+                if event.key == pg.K_4:
+                    valgt_genser = 3
+                if event.key == pg.K_5:
+                    valgt_genser = 4
+
+                if event.key == pg.K_q:
+                    valgt_bukse = 0
+                if event.key == pg.K_w:
+                    valgt_bukse = 1
+                if event.key == pg.K_e:
+                    valgt_bukse = 2
+                if event.key == pg.K_r:
+                    valgt_bukse = 3
+                if event.key == pg.K_t:
+                    valgt_bukse = 4
 
 
 
@@ -63,11 +63,6 @@ while running:
         vindu.blit(gensere[valgt_genser], genser_rect)
 
     
-        # Lager en tekst i form av et bilde og legger til bildet i vinduet
-        pg.draw.rect(vindu,(255,192,203),knapp)
-        bilde = font.render("Ferdig", True, (255, 0, 0)).convert_alpha()
-        vindu.blit(bilde, (knapp.x+15, knapp.y+5))
-
         
         if ferdig_trykket:
             # Vis "Dagens antrekk!" øverst
