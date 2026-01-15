@@ -66,3 +66,16 @@ ferdig_trykket = False  # NY VARIABEL!
 
 #knapp = pg.draw.rect(vindu, (255,192,203),(203,450,100,40) )
 knapp = pg.Rect(200,450,100,40)
+
+#FÅ KLÆRNE TIL Å SLIDE INN
+
+# MÅL-posisjon (sentrert på Silje)
+genser_start = silje_rect.centerx + 8 - GENSER_BREDDE // 2
+bukse_start  = silje_rect.centerx + 8 - BUKSE_BREDDE // 2
+
+# Start helt utenfor skjermen (venstre)
+genser_x = -GENSER_BREDDE - 20
+bukse_x  = -BUKSE_BREDDE - 20
+
+# Fart på animasjonen
+fart = 15
