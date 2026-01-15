@@ -1,8 +1,10 @@
 import pygame as pg
 import sys
+import random
 # Initialiserer/starter pygame
 pg.init()
 pg.font.init()
+clock = pg.time.Clock()
 from constants import *
 
 
@@ -20,6 +22,7 @@ def handleEvents():
             if not ferdig_trykket:  # Bare hvis ikke allerede trykket
                 print("Du klikket")
                 ferdig_trykket = True  # Sett til True!
+                lag_konfetti()
 
 
         if ferdig_trykket == False:    
@@ -72,6 +75,31 @@ def animer():
             bukse_x = bukse_start
 
 
+def lag_konfetti():
+    for _ in range(80):  # antall konfettibiter
+        bit = {
+            "x": random.randint(0, VINDU_BREDDE),
+            "y": random.randint(-200, 0),
+            "fart_y": random.randint(4, 10),
+            "fart_x": random.randint(-2, 2),
+            "farge": random.choice(FARGER)
+        }
+        konfetti.append(bit)
+
+
+def tegn_konfetti():
+    for bit in konfetti:
+                bit["x"] += bit["fart_x"]
+                bit["y"] += bit["fart_y"]
+
+                pg.draw.rect(
+                    vindu,
+                    bit["farge"],
+                    (bit["x"], bit["y"], 6, 6)
+                )
+    
+    # Fjern konfetti som er ute av skjermen
+    konfetti[:] = [bit for bit in konfetti if bit["y"] < VINDU_HOYDE + 10]
 
 while running:
     handleEvents()
@@ -104,6 +132,7 @@ while running:
         # Vis "Dagens antrekk!" øverst
         finish = font.render("Dagens antrekk!", True, (255, 0, 0))
         vindu.blit(finish, (180, 20))
+        tegn_konfetti()
 
     else:
         # Vis "Ferdig"-knappen
@@ -112,7 +141,7 @@ while running:
         vindu.blit(bilde, (knapp.x + 15, knapp.y + 5))
         
     pg.display.flip()
-    clock = pg.time.Clock()
+    clock.tick(60)
 
 
 pg.quit()
