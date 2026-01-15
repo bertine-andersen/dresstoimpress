@@ -78,7 +78,7 @@ genser_x = -GENSER_BREDDE - 20
 bukse_x  = -BUKSE_BREDDE - 20
 
 # Fart på animasjonen
-fart = 1
+fart = 6
 
 
 konfetti = []
