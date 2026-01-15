@@ -79,3 +79,13 @@ bukse_x  = -BUKSE_BREDDE - 20
 
 # Fart på animasjonen
 fart = 1
+
+
+konfetti = []
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+GREEN_DARK = (0, 100, 0)
+BLUE = (0, 0, 255)
+PURPLE = (200,0,200)
+ORANGE = (255,200,0)
+FARGER = [RED, GREEN, GREEN_DARK, BLUE, PURPLE, ORANGE]
